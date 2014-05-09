@@ -1,53 +1,24 @@
 #----------------------------------------------------------------------
-# ssd1306.py from https://github.com/guyc/py-gaugette
-# ported by Guy Carpenter, Clearwater Software
+# ssd1351.py from https://github.com/boxysean/py-gaugette
+# ported by boxysean
 #
 # This library works with 
-#   Adafruit's 128x32 SPI monochrome OLED   http://www.adafruit.com/products/661
-#   Adafruit's 128x64 SPI monochrome OLED   http://www.adafruit.com/products/326
-# it should work with other SSD1306-based displays.
-# The datasheet for the SSD1306 is available
-#   http://www.adafruit.com/datasheets/SSD1306.pdf
+#   Adafruit's 128x128 SPI RGB OLED   https://www.adafruit.com/products/1431
 #
 # The code is based heavily on Adafruit's Arduino library
-#   https://github.com/adafruit/Adafruit_SSD1306
+#   https://github.com/adafruit/Adafruit-SSD1351-library
 # written by Limor Fried/Ladyada for Adafruit Industries.
 #
 # Some important things to know about this device and SPI:
 #
-# - The SPI interface has no MISO connection.  It is write-only.
-#
-# - The spidev xfer and xfer2 calls overwrite the output buffer
-#   with the bytes read back in during the SPI transfer.
-#   Use writebytes instead of xfer to avoid having your buffer overwritten.
-#
-# - The D/C (Data/Command) line is used to distinguish data writes
-#   and command writes - HIGH for data, LOW for commands.  To be clear,
-#   the attribute bytes following a command opcode are NOT considered data,
-#   data in this case refers only to the display memory buffer.
-#   keep D/C LOW for the command byte including any following argument bytes.
-#   Pull D/C HIGH only when writting to the display memory buffer.
-#   
 # SPI and GPIO calls are made through an abstraction library that calls
 # the appropriate library for the platform.
 # For the RaspberryPi:
 #     wiring2
 #     spidev
-# For the BeagleBone Black:
-#     Adafruit_BBIO.SPI 
-#     Adafruit_BBIO.GPIO
 #
-# - The pin connections between the BeagleBone Black SPI0 and OLED module are:
+# Presently untested / not supported for BBBlack
 #
-#      BBB    SSD1306
-#      P9_17  -> CS
-#      P9_15  -> RST   (arbirary GPIO, change at will)
-#      P9_13  -> D/C   (arbirary GPIO, change at will)
-#      P9_22  -> CLK
-#      P9_18  -> DATA
-#      P9_3   -> VIN
-#      N/C    -> 3.3Vo
-#      P9_1   -> GND
 #----------------------------------------------------------------------
 
 import gaugette.gpio
