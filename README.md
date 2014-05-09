@@ -25,6 +25,7 @@ Here's the current compatibility matrix:
 | RgbLed        | yes              | yes              | no               | no               |
 | RotaryEncoder | yes              | yes              | yes              | no               |
 | SSD1306       | yes              | no               | yes              | no               |
+| SSD1351       | yes              | ??               | ??               | ??               |
 | Switch        | yes              | yes              | yes              | no               |
 
 Prerequisites for the Raspberry Pi
