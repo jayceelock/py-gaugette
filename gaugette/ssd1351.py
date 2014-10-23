@@ -185,7 +185,7 @@ class SSD1351:
         self.command(self.CMD_WRITERAM)
 
     def scale(self, x, inLow, inHigh, outLow, outHigh):
-        return ((x - inLow) / float(inHigh) * outHigh) + outLow;
+        return ((x - inLow) / float(inHigh) * outHigh) + outLow
 
     def encode_color(self, color):
         red = (color >> 16) & 0xFF
@@ -209,7 +209,7 @@ class SSD1351:
         return c
 
     def fillScreen(self, fillcolor): # int
-        self.fillRect(0, 0, self.SSD1351WIDTH, self.SSD1351HEIGHT, self.encode_color(fillcolor))
+        self.fillRect(0, 0, self.SSD1351WIDTH, self.SSD1351HEIGHT, fillcolor)
 
     def fillRect(self, x, y, w, h, fillcolor):
         # Bounds check
@@ -283,7 +283,7 @@ class SSD1351:
                 p += 1
                 for row in range(8):
                     if (mask & 1) != 0:
-                        # self.drawPixel(x, y+row, self.encode_color(color))
+                        # self.drawPixel(x, y+row, color)
                         self.bitmap.draw_pixel(x, y+row, self.encode_color(color))
                     else:
                         # self.drawPixel(x, y+row, 0)
