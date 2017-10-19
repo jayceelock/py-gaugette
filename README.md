@@ -36,7 +36,6 @@ Here's the current compatibility matrix:
 | SSD1306       | yes              | no               | yes              | no               |
 | SSD1351       | yes              | yes              | ??               | ??               |
 | Switch        | yes              | yes              | yes              | no               |
-=======
 Important - this is Gaugette version 2, which at present ONLY supports Python 3.
 I have not yet tested it on the BeagleBone.
 
