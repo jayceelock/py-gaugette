@@ -10,6 +10,7 @@
 #
 #----------------------------------------------------------------------
 import gaugette
+<<<<<<< HEAD
 import gaugette.platform
 
 class GPIO:

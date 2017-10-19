@@ -2,13 +2,14 @@
 
 import gaugette.ssd1351
 import gaugette.platform
+import gaugette.ssd1351
 import time
 import sys
 from random import randint
 
 from PIL import Image
 
-ROWS = 128
+ROWS = 96
 COLS = 128
 
 if gaugette.platform.isRaspberryPi:

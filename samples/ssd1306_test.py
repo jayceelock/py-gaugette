@@ -2,10 +2,11 @@
 
 import gaugette.ssd1306
 import gaugette.platform
+import gaugette.ssd1306
 import time
 import sys
 
-ROWS = 32
+ROWS = 64
 
 if gaugette.platform.isRaspberryPi:
   RESET_PIN = 15
