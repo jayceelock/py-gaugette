@@ -1,8 +1,9 @@
 import gaugette.capswitch
+import gaugette.platform
 import gaugette.rgbled
 import time
 
-if gaugette.platform == 'raspberrypi':
+if gaugette.platform.isRaspberryPi:
   SWITCH_PIN = 9
   RGB_RED    = 6
   RGB_GREEN  = 5
