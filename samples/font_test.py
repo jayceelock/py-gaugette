@@ -1,14 +1,16 @@
 import gaugette.ssd1306
+import gaugette.platform
+import gaugette.gpio
+import gaugette.spi
 import time
-import sys
 
 ROWS = 32  # set to 64 for 128x64 display
-if gaugette.platform == 'raspberrypi':
-  RESET_PIN = 15
-  DC_PIN    = 16
+if gaugette.platform.isRaspberryPi:
+    RESET_PIN = 15
+    DC_PIN    = 16
 else:  # beagebone
-  RESET_PIN = "P9_15"
-  DC_PIN    = "P9_13"
+    RESET_PIN = "P9_15"
+    DC_PIN    = "P9_13"
 
 fonts = []
 
@@ -57,7 +59,9 @@ from gaugette.fonts import curlz_32
 fonts += [curlz_22,
           curlz_32]
 
-led = gaugette.ssd1306.SSD1306(reset_pin=RESET_PIN, dc_pin=DC_PIN, rows=ROWS, cols=128, buffer_cols=256)
+gpio = gaugette.gpio.GPIO()
+spi = gaugette.spi.SPI(bus=0, device=0)
+led = gaugette.ssd1306.SSD1306(gpio, spi, reset_pin=RESET_PIN, dc_pin=DC_PIN, rows=ROWS, cols=128, buffer_cols=256)
 led.begin()
 led.clear_display()
 
@@ -65,12 +69,12 @@ offset = 0
 while True:
     for font in fonts:
         row = (offset+32) % 64
-        y = (32-font.char_height)/2
+        y = (32-font.char_height) // 2
         led.clear_block(0,row,256,32)
         textSize = led.draw_text3(0,row+y,font.name,font)
         if textSize > 256:
             textSize = 256
-            
+
         led.display()
 
         for scroll in range(0,32):
@@ -90,7 +94,7 @@ while True:
                 led.display()
         else:
             time.sleep(1.0)
-            
+
             #row = (offset+32) % 64
             #led.clear_block(0,row,128,32)
             #led.draw_text3(-scroll,row+y,font.name,font)
