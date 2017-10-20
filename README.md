@@ -20,12 +20,6 @@ This library runs on both the Raspberry Pi and BeagleBone Black.  However
 some classes have not yet been ported or tested on both platforms, so refer
 to the table below for compatibility information.
 
-The library has been developed using Python v2.7, with a goal of also
-maintaining Python 3 compatibility.  However as of Feb 2014 some of the
-required libraries are not yet available for Python 3.
- - py-spidev for the Raspberry Pi is not available for Python 3
- - Adafruit_BBIO for the BeagleBone is not available for Python 3
-
 Here's the current compatibility matrix:
 
 | Class         | RPi + Python 2.7 | RPi + Python 3   | BBB + Python 2.7 | BBB + Python 3   |
@@ -36,8 +30,7 @@ Here's the current compatibility matrix:
 | SSD1306       | yes              | no               | yes              | no               |
 | SSD1351       | yes              | yes              | ??               | ??               |
 | Switch        | yes              | yes              | yes              | no               |
-Important - this is Gaugette version 2, which at present ONLY supports Python 3.
-I have not yet tested it on the BeagleBone.
+Important - this is Gaugette version 2, which at present ONLY supports Python 3. I have not yet tested it on the BeagleBone.
 
 Prerequisites for the Raspberry Pi
 ==================================
